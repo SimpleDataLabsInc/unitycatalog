@@ -12,10 +12,8 @@ class ProphecyUnboundFunction(functionInfo: FunctionInfo) extends UnboundFunctio
       null
     }
     override def inputTypes(): Array[DataType] = {
-      println(s"inputType = ${inputType.toString()}")
       val inputParams = functionInfo.getInputParams
       if (inputParams != null) {
-        println(s"inputParams = ${inputParams.toString}")
         val paramsInfo = inputParams.getParameters
 
         paramsInfo.asScala.map(x =>
@@ -27,7 +25,6 @@ class ProphecyUnboundFunction(functionInfo: FunctionInfo) extends UnboundFunctio
         ).toArray
       } else Array.empty
     } // Replace with actual types
-    println(s"functionResponse = ${functionInfo.toString}")
     override def resultType(): DataType = {
       scala.util.Try(
         DataType.fromDDL(functionInfo.getFullDataType)
