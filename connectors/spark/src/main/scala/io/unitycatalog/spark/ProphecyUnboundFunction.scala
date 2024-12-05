@@ -24,7 +24,7 @@ class ProphecyUnboundFunction(functionInfo: FunctionInfo) extends UnboundFunctio
           )
         ).toArray
       } else Array.empty
-    } // Replace with actual types
+    }
     override def resultType(): DataType = {
       scala.util.Try(
         DataType.fromDDL(functionInfo.getFullDataType)
